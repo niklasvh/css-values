@@ -1,10 +1,20 @@
 var CSSValue = require('./cssvalue');
 
+var integerFormat = "((-|\\+)?[0-9]+)";
+var integerRegExp = new RegExp("^" + integerFormat + "$");
+
 var numberFormat = "((-|\\+)?\\d*(\\.\\d+)?(e\\d+)?)";
 var numberRegExp = new RegExp("^" + numberFormat + "$");
 
 var lengthUnits = "(em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|q|in|pc|pt|px)";
 var lengthRegExp = new RegExp("^" + numberFormat + lengthUnits + "$", "i");
+
+exports.integer = function(value) {
+    var match = String(value).match(integerRegExp);
+    if (match) {
+        return new CSSValue('integer', Number(match[1]));
+    }
+};
 
 exports.number = function(value) {
     var match = String(value).match(numberRegExp);
