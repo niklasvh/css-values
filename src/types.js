@@ -4,7 +4,7 @@ var numberFormat = "((-|\\+)?\\d*(\\.\\d+)?(e\\d+)?)";
 var numberRegExp = new RegExp("^" + numberFormat + "$");
 
 var lengthUnits = "(em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|q|in|pc|pt|px)";
-var lengthRegExp = new RegExp("^" + numberFormat + lengthUnits + "$");
+var lengthRegExp = new RegExp("^" + numberFormat + lengthUnits + "$", "i");
 
 exports.number = function(value) {
     var match = String(value).match(numberRegExp);
@@ -16,6 +16,6 @@ exports.number = function(value) {
 exports.length = function(value) {
     var match = String(value).match(lengthRegExp);
     if (match) {
-        return new CSSValue('length', Number(match[1]), match[5]);
+        return new CSSValue('length', Number(match[1]), match[5].toLowerCase());
     }
 };
