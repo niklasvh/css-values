@@ -1,0 +1,26 @@
+{
+  "name": "css-values",
+  "version": "0.0.1",
+  "description": "CSS value parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/niklasvh/css-values"
+  },
+  "keywords": [
+    "css-values",
+    "parser"
+  ],
+  "author": "Niklas von Hertzen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/niklasvh/css-values/issues"
+  },
+  "homepage": "https://github.com/niklasvh/css-values",
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  }
+}
