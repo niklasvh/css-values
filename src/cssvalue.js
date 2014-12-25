@@ -16,4 +16,12 @@ CSSValue.prototype.serialize = function() {
     }
 };
 
+CSSValue.prototype.computeRelativeTo = function(relative) {
+    if (this.type !== 'percentage') {
+        throw new Error('Cannot compute relative value for type ' + this.type);
+    }
+
+    return new CSSValue(relative.type, relative.value * this.value, relative.unit);
+};
+
 module.exports = CSSValue;
