@@ -3,6 +3,7 @@ var types = require('./types');
 
 function getType(format) {
     switch (format) {
+        case '<absolute-size>': return types.absoluteSize;
         case '<color>': return types.color;
         case '<integer>': return types.integer;
         case '<length>': return types.length;
@@ -23,7 +24,7 @@ Parser.prototype.parse = function(value) {
     var values = this.values, result;
     for (var i = 0; i < values.length; i++) {
         if (typeof(values[i]) === 'string' && String(value).toLowerCase() === values[i]) {
-            return new CSSValue(values[i], null);
+            return new CSSValue('string', values[i]);
         } else if(typeof(values[i]) === 'function' && (result = values[i](value))) {
             return result;
         }

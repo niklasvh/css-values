@@ -11,6 +11,16 @@ var percentageRegExp = new RegExp("^" + numberFormat + "%" + "$", "i");
 var lengthUnits = "(em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|q|in|pc|pt|px)";
 var lengthRegExp = new RegExp("^" + numberFormat + lengthUnits + "$", "i");
 
+var absoluteSizeFormat = "(xx\\-small|x\\-small|small|medium|large|x\\-large|xx\\-large)";
+var absoluteSizeRegExp = new RegExp("^" + absoluteSizeFormat + "$", "i");
+
+exports.absoluteSize = function(value) {
+    var match = String(value).match(absoluteSizeRegExp);
+    if (match) {
+        return new CSSValue('absolute-size', String(match[1]));
+    }
+};
+
 exports.integer = function(value) {
     var match = String(value).match(integerRegExp);
     if (match) {
