@@ -48,7 +48,7 @@ exports.number = function(value) {
 exports.percentage = function(value) {
     var match = String(value).match(percentageRegExp);
     if (match) {
-        return new CSSValue('percentage', Number(match[1]));
+        return new CSSValue('percentage', Number(match[1]) / 100);
     }
 };
 

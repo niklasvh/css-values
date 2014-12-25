@@ -6,7 +6,7 @@ describe('Percentages: the <percentage> type', function() {
     it('Support <percentage> format', function() {
         assert.deepEqual(
             values.format('<percentage>').parse('12.5%'),
-            {type: 'percentage', value: 12.5, unit: null}
+            {type: 'percentage', value: 0.125, unit: null}
         );
     });
 
@@ -20,21 +20,21 @@ describe('Percentages: the <percentage> type', function() {
     it('12%', function() {
         assert.deepEqual(
             values.format(percentage).parse('12%'),
-            {type: 'percentage', value: 12, unit: null}
+            {type: 'percentage', value: 0.12, unit: null}
         );
     });
 
     it('12.5%', function() {
         assert.deepEqual(
             values.format(percentage).parse('12.5%'),
-            {type: 'percentage', value: 12.5, unit: null}
+            {type: 'percentage', value: 0.125, unit: null}
         );
     });
 
     it('-12.5%', function() {
         assert.deepEqual(
             values.format(percentage).parse('-12.5%'),
-            {type: 'percentage', value: -12.5, unit: null}
+            {type: 'percentage', value: -0.125, unit: null}
         );
     });
 

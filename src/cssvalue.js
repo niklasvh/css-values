@@ -11,7 +11,7 @@ CSSValue.prototype.serialize = function() {
         case 'string':
         case 'integer':
         case 'number': return String(this.value);
-        case 'percentage': return this.value + '%';
+        case 'percentage': return (this.value * 100) + '%';
         case 'length': return this.value + this.unit;
     }
 };
