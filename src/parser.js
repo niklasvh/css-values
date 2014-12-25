@@ -1,7 +1,22 @@
 var CSSValue = require('./cssvalue');
+var types = require('./types');
+
+function getType(format) {
+    switch (format) {
+        case '<color>': return types.color;
+        case '<integer>': return types.integer;
+        case '<length>': return types.length;
+        case '<number>': return types.number;
+        case '<percentage>': return types.percentage;
+    }
+
+    throw new Error('Invalid css format ' + format);
+}
 
 function Parser(values) {
-    this.values = values;
+    this.values = values.map(function(format) {
+        return typeof(format) === 'string' && format.charAt(0) === '<' ? getType(format) : format;
+    });
 }
 
 Parser.prototype.parse = function(value) {

@@ -3,6 +3,13 @@ var assert = require('assert');
 var length = values.type.length;
 
 describe('Distance Units: the <length> type', function() {
+    it('Support <length> format', function() {
+        assert.deepEqual(
+            values.format('<length>').parse('12em'),
+            {type: 'length', value: 12, unit: 'em'}
+        );
+    });
+
     describe('Relative lengths', function() {
         describe('Font-relative lengths', function() {
             it('em', function() {

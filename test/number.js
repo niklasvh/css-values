@@ -3,6 +3,13 @@ var assert = require('assert');
 var number = values.type.number;
 
 describe('Real Numbers: the <number> type', function() {
+    it('Support <number> format', function() {
+        assert.deepEqual(
+            values.format('<number>').parse('12.5'),
+            {type: 'number', value: 12.5, unit: null}
+        );
+    });
+
     it('A raw <integer> is also a <number>', function() {
         assert.deepEqual(
             values.format(number).parse('12'),

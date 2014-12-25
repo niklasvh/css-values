@@ -3,6 +3,13 @@ var assert = require('assert');
 var integer = values.type.integer;
 
 describe('Integers: the <integer> type', function() {
+    it('Support <integer> format', function() {
+        assert.deepEqual(
+            values.format('<integer>').parse('12'),
+            {type: 'integer', value: 12, unit: null}
+        );
+    });
+
     it('Positive integer (without a leading + sign)', function() {
         assert.deepEqual(
             values.format(integer).parse('12'),
