@@ -10,6 +10,13 @@ describe('Distance Units: the <length> type', function() {
         );
     });
 
+    it('Serialize correctly', function() {
+        assert.deepEqual(
+            values.format('<length>').parse('5px').serialize(),
+            '5px'
+        );
+    });
+
     describe('Relative lengths', function() {
         describe('Font-relative lengths', function() {
             it('em', function() {

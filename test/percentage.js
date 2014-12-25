@@ -10,6 +10,13 @@ describe('Percentages: the <percentage> type', function() {
         );
     });
 
+    it('Serialize correctly', function() {
+        assert.deepEqual(
+            values.format('<percentage>').parse('5.5%').serialize(),
+            '5.5%'
+        );
+    });
+
     it('12%', function() {
         assert.deepEqual(
             values.format(percentage).parse('12%'),

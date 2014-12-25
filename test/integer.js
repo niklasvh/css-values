@@ -10,6 +10,13 @@ describe('Integers: the <integer> type', function() {
         );
     });
 
+    it('Serialize correctly', function() {
+        assert.deepEqual(
+            values.format('<integer>').parse('12').serialize(),
+            '12'
+        );
+    });
+
     it('Positive integer (without a leading + sign)', function() {
         assert.deepEqual(
             values.format(integer).parse('12'),

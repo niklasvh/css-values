@@ -12,6 +12,13 @@ describe('Absolute size: the <absolute-size> type', function() {
         );
     });
 
+    it('Serialize correctly', function() {
+        assert.deepEqual(
+            values.format('<absolute-size>').parse('xx-small').serialize(),
+            'xx-small'
+        );
+    });
+
     it('xx-small', function() {
         assert.deepEqual(
             values.format(absoluteSize).parse('xx-small'),

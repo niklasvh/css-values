@@ -10,6 +10,13 @@ describe('Real Numbers: the <number> type', function() {
         );
     });
 
+    it('Serialize correctly', function() {
+        assert.deepEqual(
+            values.format('<number>').parse('12.5').serialize(),
+            '12.5'
+        );
+    });
+
     it('A raw <integer> is also a <number>', function() {
         assert.deepEqual(
             values.format(number).parse('12'),
