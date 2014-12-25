@@ -9,6 +9,7 @@ function getType(format) {
         case '<length>': return types.length;
         case '<number>': return types.number;
         case '<percentage>': return types.percentage;
+        case '<relative-size>': return types.relativeSize;
     }
 
     throw new Error('Invalid css format ' + format);

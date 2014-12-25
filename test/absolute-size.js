@@ -2,8 +2,6 @@ var values = require('../index');
 var assert = require('assert');
 var absoluteSize = values.type.absoluteSize;
 
-// xx-small | x-small | small | medium | large | x-large | xx-large
-
 describe('Absolute size: the <absolute-size> type', function() {
     it('Support <absolute-size> format', function() {
         assert.deepEqual(

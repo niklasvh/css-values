@@ -14,6 +14,9 @@ var lengthRegExp = new RegExp("^" + numberFormat + lengthUnits + "$", "i");
 var absoluteSizeFormat = "(xx\\-small|x\\-small|small|medium|large|x\\-large|xx\\-large)";
 var absoluteSizeRegExp = new RegExp("^" + absoluteSizeFormat + "$", "i");
 
+var relativeSizeFormat = "(larger|smaller)";
+var relativeSizeRegExp = new RegExp("^" + relativeSizeFormat + "$", "i");
+
 exports.absoluteSize = function(value) {
     var match = String(value).match(absoluteSizeRegExp);
     if (match) {
@@ -25,6 +28,13 @@ exports.integer = function(value) {
     var match = String(value).match(integerRegExp);
     if (match) {
         return new CSSValue('integer', Number(match[1]));
+    }
+};
+
+exports.length = function(value) {
+    var match = String(value).match(lengthRegExp);
+    if (match) {
+        return new CSSValue('length', Number(match[1]), match[5].toLowerCase());
     }
 };
 
@@ -42,9 +52,9 @@ exports.percentage = function(value) {
     }
 };
 
-exports.length = function(value) {
-    var match = String(value).match(lengthRegExp);
+exports.relativeSize = function(value) {
+    var match = String(value).match(relativeSizeRegExp);
     if (match) {
-        return new CSSValue('length', Number(match[1]), match[5].toLowerCase());
+        return new CSSValue('relative-size', String(match[1]));
     }
 };

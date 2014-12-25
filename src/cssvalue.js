@@ -7,6 +7,7 @@ function CSSValue(type, value, unit) {
 CSSValue.prototype.serialize = function() {
     switch(this.type) {
         case 'absolute-size':
+        case 'relative-size':
         case 'string':
         case 'integer':
         case 'number': return String(this.value);
