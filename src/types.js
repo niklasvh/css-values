@@ -6,6 +6,8 @@ var integerRegExp = new RegExp("^" + integerFormat + "$");
 var numberFormat = "((-|\\+)?\\d*(\\.\\d+)?(e\\d+)?)";
 var numberRegExp = new RegExp("^" + numberFormat + "$");
 
+var percentageRegExp = new RegExp("^" + numberFormat + "%" + "$", "i");
+
 var lengthUnits = "(em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|q|in|pc|pt|px)";
 var lengthRegExp = new RegExp("^" + numberFormat + lengthUnits + "$", "i");
 
@@ -20,6 +22,13 @@ exports.number = function(value) {
     var match = String(value).match(numberRegExp);
     if (match) {
         return new CSSValue('number', Number(match[1]));
+    }
+};
+
+exports.percentage = function(value) {
+    var match = String(value).match(percentageRegExp);
+    if (match) {
+        return new CSSValue('percentage', Number(match[1]));
     }
 };
 
