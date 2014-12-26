@@ -5,6 +5,7 @@ function getType(format) {
     switch (format) {
         case '<absolute-size>': return types.absoluteSize;
         case '<color>': return types.color;
+        case '<font-weight>': return types.fontWeight;
         case '<integer>': return types.integer;
         case '<length>': return types.length;
         case '<number>': return types.number;

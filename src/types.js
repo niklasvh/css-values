@@ -17,10 +17,20 @@ var absoluteSizeRegExp = new RegExp("^" + absoluteSizeFormat + "$", "i");
 var relativeSizeFormat = "(larger|smaller)";
 var relativeSizeRegExp = new RegExp("^" + relativeSizeFormat + "$", "i");
 
+var fontWeightFormat = "(normal|bold|bolder|lighter|[1-9]00)";
+var fontWeightRegExp = new RegExp("^" + fontWeightFormat + "$", "i");
+
 exports.absoluteSize = function(value) {
     var match = String(value).match(absoluteSizeRegExp);
     if (match) {
         return new CSSValue('absolute-size', String(match[1]));
+    }
+};
+
+exports.fontWeight = function(value) {
+    var match = String(value).match(fontWeightRegExp);
+    if (match) {
+        return new CSSValue('font-weight', String(match[1]));
     }
 };
 
