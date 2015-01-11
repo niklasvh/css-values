@@ -4,7 +4,7 @@ function CSSValue(type, value, unit) {
     this.unit = unit || null;
 }
 
-CSSValue.prototype.serialize = function() {
+CSSValue.prototype.serialize = function(type) {
     switch(this.type) {
         case 'absolute-size':
         case 'relative-size':
@@ -14,6 +14,7 @@ CSSValue.prototype.serialize = function() {
         case 'number': return String(this.value);
         case 'percentage': return (this.value * 100) + '%';
         case 'length': return this.value + this.unit;
+        case 'color': return this.value.toString(type);
     }
 };
 

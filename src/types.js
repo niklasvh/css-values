@@ -1,4 +1,5 @@
 var CSSValue = require('./cssvalue');
+var CSSColor = require('./color/csscolor');
 
 var integerFormat = "((-|\\+)?[0-9]+)";
 var integerRegExp = new RegExp("^" + integerFormat + "$");
@@ -66,5 +67,12 @@ exports.relativeSize = function(value) {
     var match = String(value).match(relativeSizeRegExp);
     if (match) {
         return new CSSValue('relative-size', String(match[1]));
+    }
+};
+
+exports.color = function(value) {
+    var color = CSSColor.parse(value);
+    if (color) {
+        return new CSSValue('color', color);
     }
 };

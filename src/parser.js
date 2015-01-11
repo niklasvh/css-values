@@ -24,6 +24,7 @@ function Parser(values) {
 
 Parser.prototype.parse = function(value) {
     var values = this.values, result;
+    value = typeof(value) === 'string' ? value.toLowerCase().trim() : value;
     for (var i = 0; i < values.length; i++) {
         if (typeof(values[i]) === 'string' && String(value).toLowerCase() === values[i]) {
             return new CSSValue('string', values[i]);
